@@ -40,6 +40,8 @@ window.onload = () => {
         }
     
     
+    setInterval(showNotification,5000);
+
     let btn = document.getElementById('prueba');
       
     btn.addEventListener('click',showNotification);
