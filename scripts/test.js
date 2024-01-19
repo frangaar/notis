@@ -7,10 +7,12 @@ window.onload = () => {
         // Let's check if the browser supports notifications
         if (!("Notification" in window)) {
           console.log("This browser does not support desktop notification");
+          alert("no puedo");
         } 
         // Let's check whether notification permissions have alredy been granted
         else if (Notification.permission === "granted") {
           // If it's okay let's create a notification
+          alert("no puedo");
           var notification = new Notification("Alerta!",{
             icon:"https://i.pinimg.com/originals/ae/e2/3f/aee23f579754fe36ea8cc2643597ca5a.jpg",
             body:"Movimiento en la ENTRADA",
