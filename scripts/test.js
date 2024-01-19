@@ -25,9 +25,26 @@ window.onload = () => {
           }
         }
     };
+
+    navigator.serviceWorker.register("sw.js");
+
+        function showNotification() {
+        Notification.requestPermission().then((result) => {
+            if (result === "granted") {
+            navigator.serviceWorker.ready.then((registration) => {
+                registration.showNotification("Vibration Sample", {
+                body: "Buzz! Buzz!",
+                icon: "https://i.pinimg.com/originals/ae/e2/3f/aee23f579754fe36ea8cc2643597ca5a.jpg",
+                //vibrate: [200, 100, 200, 100, 200, 100, 200],
+                //tag: "vibration-sample",
+                });
+            });
+            }
+        });
+        }
     
     
     let btn = document.getElementById('prueba');
       
-    btn.addEventListener('click',notifyMe);
+    btn.addEventListener('click',showNotification);
 }
