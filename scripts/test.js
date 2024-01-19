@@ -35,8 +35,8 @@ window.onload = () => {
                 registration.showNotification("Vibration Sample", {
                 body: "Buzz! Buzz!",
                 icon: "https://i.pinimg.com/originals/ae/e2/3f/aee23f579754fe36ea8cc2643597ca5a.jpg",
-                //vibrate: [200, 100, 200, 100, 200, 100, 200],
-                //tag: "vibration-sample",
+                vibrate: [200, 100, 200, 100, 200, 100, 200],
+                tag: "vibration-sample",
                 });
             });
             }
