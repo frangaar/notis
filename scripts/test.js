@@ -27,20 +27,43 @@ window.onload = () => {
     };
 
     
+    async function showNotification() {
 
-        function showNotification() {
-            navigator.serviceWorker.register('sw.js');
-            Notification.requestPermission(function(result) {
-              if (result === 'granted') {
-                navigator.serviceWorker.ready.then(function(registration) {
-                  registration.showNotification('Notification with ServiceWorker');
-                });
-              }
+            let riderName = 'rid1';
+            
+            let endPoint= "request.php?rider="+riderName;
+
+            dataFromDB= await fetch(endPoint, {
+                method: 'get'
             });
+        
+            let response = await dataFromDB.json();
+
+            if(response){
+                let mensaje = response.mensaje;
+          
+                navigator.serviceWorker.register('sw.js');
+                Notification.requestPermission(function(result) {
+                    if (result === 'granted') {
+                        navigator.serviceWorker.ready.then(function(registration) {
+                        registration.showNotification(mensaje);
+                        });
+                    }
+                });
+            }
+
+            navigator.serviceWorker.register('sw.js');
+                Notification.requestPermission(function(result) {
+                    if (result === 'granted') {
+                        navigator.serviceWorker.ready.then(function(registration) {
+                        registration.showNotification("prueba");
+                        });
+                    }
+                });
         }
     
     
-    setInterval(showNotification,5000);
+    //setInterval(showNotification,5000);
 
     let btn = document.getElementById('prueba');
       
