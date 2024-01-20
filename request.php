@@ -39,6 +39,11 @@
 
             $data = $select->fetch();
 
+            $updateSql = "update notis_usuario set leido = true where rider = '" . $riderName . "' and leido = false";
+
+            $update = $conn->prepare($updateSql);
+            $update->execute();
+
             echo json_encode($data);
 
             $conn->commit();
