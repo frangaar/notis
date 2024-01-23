@@ -11,6 +11,7 @@ rider varchar(250) not null,
 leido boolean
 );
 
+tabla usuarios
 tabla riders
 tabla proveedores
 tabla centro sociales
