@@ -60,4 +60,15 @@ window.onload = () => {
     let btn = document.getElementById('prueba');
       
     btn.addEventListener('click',showNotification);
+
+
+    let json = {
+        'Nombre': 'Aleix',
+        'Apellido': 'Corres'
+    }
+
+    console.log(json);
+    console.log(JSON.stringify(json));
+    let parse = JSON.stringify(json);
+    console.log(JSON.parse(parse));
 }
